@@ -5,40 +5,35 @@ distributing Python projects. It is used by setuptools
 of your project, such as its metadata, dependencies, and more
 '''
 
-from setuptools import find_packages, setup  # Used to handle package distribution
-from typing import List  # For type hinting
+from setuptools import find_packages,setup
+from typing import List
 
-def get_requirements() -> List[str]:
+def get_requirements()->List[str]:
     """
-    This function reads the 'requirements.txt' file and returns
-    a list of all required libraries excluding lines like '-e .'.
+    Thiss function will return list of requirements
+    
     """
-    requirement_lst: List[str] = []  # Initialize empty list to store requirements
-
+    requirement_lst:List[str]=[]
     try:
-        # Open the requirements file in read mode
-        with open('requirements.txt', 'r') as file:
-            lines = file.readlines()  # Read all lines from the file
-
-            # Process each line
+        with open('requirements.txt','r') as file:
+            #Read lines from the file
+            lines=file.readlines()
+            ## Process each line
             for line in lines:
-                requirement = line.strip()  # Remove any leading/trailing whitespaces
-
-                # Ignore empty lines and editable install commands
-                if requirement and requirement != '-e .':
+                requirement=line.strip()
+                ## ignore empty lines and -e .
+                if requirement and requirement!= '-e .':
                     requirement_lst.append(requirement)
-
     except FileNotFoundError:
-        print("requirements.txt file not found")  # Notify if file is missing
+        print("requirements.txt file not found")
 
-    return requirement_lst  # Return the final list of requirements
+    return requirement_lst
 
-# Main setup configuration
 setup(
-    name="Network Security System",  # Name of your project/package
-    version="0.0.1",  # Version of your project
-    author="Harshith",  # Author name
-    author_email="aharshith23@gmail.com",  # Author email
-    packages=find_packages(),  # Automatically discover all packages in the directory
-    install_requires=get_requirements()  # List of dependencies from requirements.txt
+    name="NetworkSecurity",
+    version="0.0.1",
+    author="Harshith",
+    author_email="aharshith23@gmail.com",
+    packages=find_packages(),
+    install_requires=get_requirements()
 )

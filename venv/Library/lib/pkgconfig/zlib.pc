@@ -1,0 +1,13 @@
+prefix=C:/Harshith ML project/End to End MLOPS with ETL Pipelines/Network Security System/venv/Library
+exec_prefix=C:/Harshith ML project/End to End MLOPS with ETL Pipelines/Network Security System/venv/Library
+libdir=C:/Harshith ML project/End to End MLOPS with ETL Pipelines/Network Security System/venv/Library/lib
+sharedlibdir=C:/Harshith ML project/End to End MLOPS with ETL Pipelines/Network Security System/venv/Library/lib
+includedir=C:/Harshith ML project/End to End MLOPS with ETL Pipelines/Network Security System/venv/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
